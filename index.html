@@ -18,10 +18,12 @@ $(function(){
           }else{
 	    // This a href appears to be external, so tag it
 	    $(this).addClass('external');
+	    $(this).leaveNotice({siteName: 'NIST'});
+	    console.log('tagged A href="' + url + '"');
 	  }
         });
 	//$('a[target=_blank]').leaveNotice({siteName:'LeaveNotice jQuery Plugin'});
-	$('a[rel=external]').leaveNotice({siteName:'NIST'});
+	//$('a[rel=external]').leaveNotice({siteName:'NIST'});
 	//$('a.external').leaveNotice({siteName:'NIST'});
 });
 
