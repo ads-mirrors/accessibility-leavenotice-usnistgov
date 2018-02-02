@@ -6,27 +6,27 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js">
 <script src="js/jquery.leaveNotice.min.js"></script>
-<!-- <script>
+<script>
   $(function(){
 	// Mark external (non-nist.gov) A tags with class "external"
 	var re_nist = new RegExp('^https?://([^/]*\.)*nist\.gov(/|$)');
 	var re_not_relative = new RegExp('^((https?:)?//)');
 	$("a").each(function(){
-	  var url=$(this).attr('href');
-	  if(re_nist.test(url) && ! re_not_relative.test(url)){
-	    //$(this).addClass('local');
-          }else{
-	    // This a href appears to be external, so tag it
-	    $(this).addClass('external');
-	//    $(this).leaveNotice({siteName: 'NIST'});
-	    console.log('tagged A href="' + url + '"');
-	  }
-        });
+//	  var url=$(this).attr('href');
+//	  if(re_nist.test(url) && ! re_not_relative.test(url)){
+//	    //$(this).addClass('local');
+ //         }else{
+//	    // This a href appears to be external, so tag it
+//	    $(this).addClass('external');
+//	//    $(this).leaveNotice({siteName: 'NIST'});
+	    console.log('Found A href="' + url + '"');
+//	  }
+	});
 	//$('a[target=_blank]').leaveNotice({siteName:'LeaveNotice jQuery Plugin'});
 	//$('a[rel=external]').leaveNotice({siteName:'NIST'});
 	//$('a.external').leaveNotice({siteName:'NIST'});
   });
-</script> -->
+</script>
 <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.leaveNotice.css" />
 <link rel="stylesheet" type="text/css" href="leaveNoticeDocs.css" />
