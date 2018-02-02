@@ -9,19 +9,18 @@
 <script>
   $(function(){
 	// Mark external (non-nist.gov) A tags with class "external"
-	var re_nist = new RegExp('^https?://([^/]*\.)*nist\.gov(/|$)');
-	var re_not_relative = new RegExp('^((https?:)?//)');
+	var re_nist = /^https?:\/\/([^/]*\.)*nist\.gov(\/|$)/;
+	var re_not_relative = /^((https?:)?\/\/)/;
 	$("a").each(function(){
 	  var url=$(this).attr('href');
-//	  if(re_nist.test(url) && ! re_not_relative.test(url)){
+	  if(re_nist.test(url) && ! re_not_relative.test(url)){
 //	    $(this).addClass('local');
-//	    console.log('Found internal A href="' + url + '"');
-//	  } else {
-//	    // This a href appears to be external, so tag it
+	    console.log('Found internal A href="' + url + '"');
+	  } else {
 //	    $(this).addClass('external');
 //	    //$(this).leaveNotice({siteName: 'NIST'});
 	    console.log('Found external A href="' + url + '"');
-//	  }
+	  }
 	});
 	//$('a[target=_blank]').leaveNotice({siteName:'LeaveNotice jQuery Plugin'});
 	//$('a[rel=external]').leaveNotice({siteName:'NIST'});
