@@ -3,8 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>LeaveNotice Example</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.leaveNotice.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js"></script>
+<script type="text/javascript" src="js/jquery.leaveNotice.min.js" defer="defer"></script>
 <!-- <script type="text/javascript" src="uncompressed/jquery.leaveNotice.js"></script> -->
 <script type="text/javascript">
 $(function(){
@@ -67,12 +68,14 @@ $(function(){
 #custom-messageBox a#ln-cancelLink {background-color:#666; color:#333;}
 
 </style>
+<link rel="stylesheet" type="text/css" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery.leaveNotice.css" />
 <link rel="stylesheet" type="text/css" href="leaveNoticeDocs.css" /></head>
 
 <body>
 <div id="header">
 	<h1>LeaveNotice Test Page</h1>
+	<h3>(Forked for easy inclusion into NIST projects)</h3>
 </div>
 <div id="nav">
 	<p><a href="index.html">&laquo; Back to docs</a></p>
