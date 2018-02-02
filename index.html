@@ -13,14 +13,14 @@
 	var re_not_relative = new RegExp('^((https?:)?//)');
 	$("a").each(function(){
 	  var url=$(this).attr('href');
-//	  if(re_nist.test(url) && ! re_not_relative.test(url)){
-//	    //$(this).addClass('local');
- //         }else{
+	  if(re_nist.test(url) && ! re_not_relative.test(url)){
+	    //$(this).addClass('local');
+          }else{
 //	    // This a href appears to be external, so tag it
 //	    $(this).addClass('external');
 //	//    $(this).leaveNotice({siteName: 'NIST'});
-	    console.log('Found A href="' + url + '"');
-//	  }
+	    console.log('Found external A href="' + url + '"');
+	  }
 	});
 	//$('a[target=_blank]').leaveNotice({siteName:'LeaveNotice jQuery Plugin'});
 	//$('a[rel=external]').leaveNotice({siteName:'NIST'});
