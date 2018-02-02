@@ -8,7 +8,20 @@
 <script language="javascript" type="text/javascript" src="js/jquery.leaveNotice.min.js" defer="defer"></script>
 <script language="javascript" type="text/javascript">
 $(function(){
-	$('a[target=_blank]').leaveNotice({siteName:'LeaveNotice jQuery Plugin'});
+	// Mark external (non-nist.gov) A tags with class "external"
+	var re_nist = new RegExp('^https?://([^/]*\.)*nist\.gov(/|$)');
+	var re_not_relative = new RegExp('^((https?:)?//)');
+	$("a").each(function()){
+	  var url=$(this).attr('href');
+	  if(re_nist.test(url) && ! re_not_relative.test(url)){
+	    //$(this).addClass('local');
+          }else{
+	    // This a href appears to be external, so tag it
+	    $(this).addClass('external');
+	  }
+        }
+	//$('a[target=_blank]').leaveNotice({siteName:'LeaveNotice jQuery Plugin'});
+	$('a.external').leaveNotice({siteName:'NIST'});
 });
 
 </script>
