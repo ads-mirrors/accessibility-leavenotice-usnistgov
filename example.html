@@ -2,51 +2,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>LeaveNotice Example</title>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js"></script>
-<script type="text/javascript" src="js/jquery.leaveNotice.min.js" defer="defer"></script>
+<title>LeaveNotice Examples</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" defer="defer"></script>
+<script type="text/javascript" src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" defer="defer"></script>
+<script type="text/javascript" src="https://pages.nist.gov/leaveNotice/js/jquery.leaveNotice-nist.min.js" defer="defer"></script>
 <!-- <script type="text/javascript" src="uncompressed/jquery.leaveNotice.js"></script> -->
 <script type="text/javascript">
 $(function(){
-	$('a[target=_blank]').leaveNotice({siteName:'LeaveNotice Test Page'});
+	$('a[rel=external]').leaveNotice({siteName:'NIST LeaveNotice Test Page'});
+	$('a[target=_blank]').leaveNotice({siteName:'NIST LeaveNotice Test Page'});
 	
 	//Initiation for example 1
 	$('a.ex1').leaveNotice();
 	
 	//Initiation for example 2
 	$('a.ex2').leaveNotice({
-		siteName:"LeaveNotice Test Page"
+		siteName:"NIST LeaveNotice Test Page"
 	});
 	
 	//Initiation for example 3
 	$('a.ex3').leaveNotice({
-		siteName:"LeaveNotice Test Page",
+		siteName:"NIST LeaveNotice Test Page",
 		exitMessage:"<h1>Say goodbye to<br/> {SITENAME}!</h1><p>Thanks. Shut the door behind you!</p>"
 	});
 	
 	//Initiation for example 4
 	$('a.ex4').leaveNotice({
-		siteName:"LeaveNotice Test Page",
+		siteName:"NIST LeaveNotice Test Page",
 		exitMessage:"<h3>Say goodbye to {SITENAME}!</h3><p>Thanks. Shut the door behind you!</p>",
 		preLinkMessage:"<hr/><p>Have fun at:<br/><strong>{URL}</strong></p><hr/>"
 	});
 	
 	//Initiation for example 5
 	$('a.ex5').leaveNotice({
-		siteName:"LeaveNotice Test Page",
+		siteName:"NIST LeaveNotice Test Page",
 		timeOut:0
 	});
 
 	//Initiation for example 7
 	$('a.ex6').leaveNotice({
-		siteName:"LeaveNotice Test Page",
+		siteName:"NIST LeaveNotice Test Page",
 		newWindow:true
 	});
 	
 	//Initiation for example 7
 	$('a.ex7').leaveNotice({
-		siteName:"LeaveNotice Test Page",
+		siteName:"NIST LeaveNotice Test Page",
 		exitMessage:"<h3>Say goodbye to {SITENAME}!</h3><p>Thanks. Shut the door behind you!</p>",
 		preLinkMessage:"<hr/><p>Have fun at:<br/><strong>{URL}</strong></p><hr/>",
 		overlayId:"custom-blackout",
@@ -74,15 +75,15 @@ $(function(){
 
 <body>
 <div id="header">
-	<h1>LeaveNotice Test Page</h1>
-	<h3>(Forked for easy inclusion into NIST projects)</h3>
+	<h1>NIST LeaveNotice Test Page</h1>
+	<h1>(Forked for easy inclusion into NIST projects)</h3>
 </div>
 <div id="nav">
 	<p><a href="index.html">&laquo; Back to docs</a></p>
 	<hr />
-	<p><a href="http://rewdy.com/tools/leavenotice-jquery-plugin/">LeaveNotice Plugin Page</a></p>
-	<p><a href="http://www.jquery.com">jQuery</a></p>
-	<p><a href="http://www.rewdy.com">Rewdy.com</a></p>
+	<p><a rel="external" href="http://rewdy.com/tools/leavenotice-jquery-plugin/">LeaveNotice Plugin Page</a></p>
+	<p><a rel="external" href="http://www.jquery.com">jQuery</a></p>
+	<p><a rel="external" href="http://www.rewdy.com">Rewdy.com</a></p>
 </div>
 <div id="side">
 	<h3>Outbound Links</h3>
@@ -102,20 +103,20 @@ $(function(){
 <h3>2. Standard Implementation <span>(only siteName set)</span></h3>
 <p><a href="http://www.google.com" class="ex2">Example Link</a></p>
 <code class="block">$('a.ex2').leaveNotice({
-	siteName:&quot;LeaveNotice Test Page&quot;
+	siteName:&quot;NIST LeaveNotice Test Page&quot;
 });</code>
 <hr/>
 <h3>3. Custom Exit Message</h3>
 <p><a href="http://www.google.com" class="ex3">Example Link</a></p>
 <code class="block">$('a.ex3').leaveNotice({
-	siteName:'LeaveNotice Test Page',
+	siteName:'NIST LeaveNotice Test Page',
 	exitMessage:&quot;&lt;h1&gt;Say goodbye to&lt;br/&gt; {SITENAME}!&lt;/h1&gt;&lt;p&gt;Thanks. Shut the door behind you!&lt;/p&gt;&quot;
 });</code>
 <hr/>
 <h3>4. Custom Exit Message and Custom preLinkMessage</h3>
 <p><a href="http://www.google.com" class="ex4">Example Link</a></p>
 <code class="block">$('a.ex4').leaveNotice({
-	siteName:&quot;LeaveNotice Test Page&quot;,
+	siteName:&quot;NIST LeaveNotice Test Page&quot;,
 	exitMessage:&quot;&lt;h3&gt;Say goodbye to {SITENAME}!&lt;/h3&gt;&lt;p&gt;Thanks. Shut the door behind you!&lt;/p&gt;&quot;,
 	preLinkMessage:&quot;&lt;hr/&gt;&lt;p&gt;Have fun at:&lt;br/&gt;&lt;strong&gt;{URL}&lt;/strong&gt;&lt;/p&gt;&lt;hr/&gt;&quot;
 });</code>
@@ -123,14 +124,14 @@ $(function(){
 <h3>5. No Timer Set <span>(User has to specifically click the link)</span></h3>
 <p><a href="http://www.google.com" class="ex5">Example Link</a></p>
 <code class="block">$('a.ex5').leaveNotice({
-	siteName:&quot;LeaveNotice Test Page&quot;,
+	siteName:&quot;NIST LeaveNotice Test Page&quot;,
 	timeOut:0
 });</code>
 <hr/>
 <h3>6. Open Link in New Window</h3>
 <p><a href="http://www.google.com" class="ex6">Example Link</a></p>
 <code class="block">$('a.ex6').leaveNotice({
-	siteName:&quot;LeaveNotice Test Page&quot;,
+	siteName:&quot;NIST LeaveNotice Test Page&quot;,
 	newWindow:true
 });</code>
 <hr/>
@@ -138,7 +139,7 @@ $(function(){
 <p><a href="http://www.google.com" class="ex7">Example Link</a></p>
 <p><strong>Javscript</strong></p>
 <code class="block">$('a.ex7').leaveNotice({
-	siteName:&quot;LeaveNotice Test Page&quot;,
+	siteName:&quot;NIST LeaveNotice Test Page&quot;,
 	exitMessage:&quot;&lt;h3&gt;Say goodbye to {SITENAME}!&lt;/h3&gt;&lt;p&gt;Thanks. Shut the door behind you!&lt;/p&gt;&quot;,
 	preLinkMessage:&quot;&lt;hr/&gt;&lt;p&gt;Have fun at:&lt;br/&gt;&lt;strong&gt;{URL}&lt;/strong&gt;&lt;/p&gt;&lt;hr/&gt;&quot;,
 	overlayId:&quot;custom-blackout&quot;,
