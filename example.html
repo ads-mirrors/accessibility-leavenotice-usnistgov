@@ -9,8 +9,8 @@
 <!-- <script type="text/javascript" src="uncompressed/jquery.leaveNotice.js"></script> -->
 <script type="text/javascript">
 $(function(){
-	$('a[rel=external]').leaveNotice({siteName:'NIST LeaveNotice Test Page'});
-	$('a[target=_blank]').leaveNotice({siteName:'NIST LeaveNotice Test Page'});
+	$('a[rel="external"]').leaveNotice({siteName:'NIST LeaveNotice Test Page'});
+	//$('a[target="_blank"]').leaveNotice({siteName:'NIST LeaveNotice Test Page'});
 	
 	//Initiation for example 1
 	$('a.ex1').leaveNotice();
@@ -89,9 +89,9 @@ $(function(){
 	<h3>Outbound Links</h3>
 	<p><em>Click to see demonstration of LeaveNotice.</em></p>
 	<ul>
-		<li><a href="http://www.google.com" target="_blank">Google</a></li>
-		<li><a href="http://awkwardfamilyphotos.com/" target="_blank">Awkward Family Photos</a></li>
-		<li><a href="http://www.jquery.com" target="_blank">jQuery</a></li>
+		<li><a rel="external" href="http://www.google.com" target="_blank">Google</a></li>
+		<li><a rel="external" href="http://awkwardfamilyphotos.com/" target="_blank">Awkward Family Photos</a></li>
+		<li><a rel="external" href="http://www.jquery.com" target="_blank">jQuery</a></li>
 	</ul>
 </div>
 <div id="main_narrow">
