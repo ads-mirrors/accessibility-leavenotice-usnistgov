@@ -3,29 +3,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>LeaveNotice jQuery Plugin</title>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js">
 <script src="js/jquery.leaveNotice.min.js"></script>
 <script>
-  $(function(){
-	// Mark external (non-nist.gov) A tags with class "external"
-	var re_nist = /^https?:\/\/([^/]*\.)*nist\.gov(\/|$)/;
-	var re_not_relative = /^((https?:)?\/\/)/;
-	$("a").each(function(){
-	  var url=$(this).attr('href');
-	  if(re_nist.test(url) && ! re_not_relative.test(url)){
-//	    $(this).addClass('local');
-	    console.log('Found internal A href="' + url + '"');
-	  } else {
-//	    $(this).addClass('external');
-//	    //$(this).leaveNotice({siteName: 'NIST'});
-	    console.log('Found external A href="' + url + '"');
-	  }
-	});
-	//$('a[target=_blank]').leaveNotice({siteName:'LeaveNotice jQuery Plugin'});
-	//$('a[rel=external]').leaveNotice({siteName:'NIST'});
-	//$('a.external').leaveNotice({siteName:'NIST'});
+$(document).ready(function(){
+  // Mark external (non-nist.gov) A tags with class "external"
+  //If the adress start with https and ends with nist.gov
+  var re_nist = new RegExp('^https?:\/\/((^\/)*\.)*nist\\.gov(\/|$)');
+  //Regex to find address that start with https
+  var re_absolute_address = new RegExp('^((https?:)?\/\/)');
+  $("a").each(function(){
+    var url=$(this).attr('href');
+    if(re_nist.test(url) || !re_absolute_address.test(url)){
+      $(this).addClass('local');
+    }else{
+      //This a href appears to be external, so tag it
+      $(this).addClass('external');
+    }
   });
+  // Add leaveNotice to external A elements
+  $('a.external').leaveNotice({
+        siteName: 'the Unit Manufacturing Process Builder',
+        exitMessage: '<h2><strong>Thank you for visiting {SITENAME}.</strong></h2><p>We hope your visit was informative.</p><p>We have provided a link to this site because it has information that may be of interest to our users. NIST does not necessarily endorse the views expressed or the facts presented on this site. Further, NIST does not endorse any commercial products that may be advertised or available on this site.</p>',
+        timeOut: 10000,
+  });
+});
 </script>
 <link rel="stylesheet" type="text/css" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.leaveNotice.css" />
