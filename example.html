@@ -9,7 +9,8 @@
 <!-- <script type="text/javascript" src="uncompressed/jquery.leaveNotice.js"></script> -->
 <script type="text/javascript">
 $(function(){
-	$('a[rel="external"]').leaveNotice({siteName:'NIST LeaveNotice Test Page'});
+	$("a.external").leaveNotice({siteName:'NIST LeaveNotice Test Page'});
+	//$('a[rel="external"]').leaveNotice({siteName:'NIST LeaveNotice Test Page'});
 	//$('a[target="_blank"]').leaveNotice({siteName:'NIST LeaveNotice Test Page'});
 	
 	//Initiation for example 1
@@ -81,17 +82,17 @@ $(function(){
 <div id="nav">
 	<p><a href="index.html">&laquo; Back to docs</a></p>
 	<hr />
-	<p><a rel="external" href="http://rewdy.com/tools/leavenotice-jquery-plugin/">LeaveNotice Plugin Page</a></p>
-	<p><a rel="external" href="http://www.jquery.com">jQuery</a></p>
-	<p><a rel="external" href="http://www.rewdy.com">Rewdy.com</a></p>
+	<p><a class="external" href="http://rewdy.com/tools/leavenotice-jquery-plugin/">LeaveNotice Plugin Page</a></p>
+	<p><a class="external" href="http://www.jquery.com">jQuery</a></p>
+	<p><a class="external" href="http://www.rewdy.com">Rewdy.com</a></p>
 </div>
 <div id="side">
 	<h3>Outbound Links</h3>
 	<p><em>Click to see demonstration of LeaveNotice.</em></p>
 	<ul>
-		<li><a rel="external" href="http://www.google.com" target="_blank">Google</a></li>
-		<li><a rel="external" href="http://awkwardfamilyphotos.com/" target="_blank">Awkward Family Photos</a></li>
-		<li><a rel="external" href="http://www.jquery.com" target="_blank">jQuery</a></li>
+		<li><a class="external" href="http://www.google.com" target="_blank">Google</a></li>
+		<li><a class="external" href="http://awkwardfamilyphotos.com/" target="_blank">Awkward Family Photos</a></li>
+		<li><a class="external" href="http://www.jquery.com" target="_blank">jQuery</a></li>
 	</ul>
 </div>
 <div id="main_narrow">
