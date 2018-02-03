@@ -5,6 +5,7 @@
  * Copyright (c) 2012 Andrew Meyer
  * Licensed under the MIT License: http://en.wikipedia.org/wiki/MIT_License
  * Requires: jQuery v1.4+
+ * Updated: 2018/02/03 steveb@nist.gov to match current jQuery plugin docs and to set defaults for NIST
 */
 
 (function( $ ) {
@@ -12,12 +13,12 @@
 		
 		// define default parameters
 		var defaults = {
-			siteName: window.location.href,
-			exitMessage: "<p><strong>You have requested a website outside of {SITENAME}.</strong></p><p>Thank you for visiting.</p>",
+			siteName: 'NIST',
+			exitMessage: '<h2><strong>Thank you for visiting {SITENAME}.</strong></h2><p>We hope your visit was informative.</p><p>We have provided this link to a non-NIST site because it has information that may be of interest to our users. NIST does not necessarily endorse the views expressed or the facts presented on this site. Further, NIST does not endorse any commercial products that may be advertised or available on this site.</p>',
 			preLinkMessage: "<div class='setoff'><p>You will now be directed to:<br/>{URL}</p></div>",
 			linkString: "", 
 			newWindow: false,
-			timeOut: 4000,
+			timeOut: 10000,
 			overlayId: "ln-blackout",
 			messageBoxId: "ln-messageBox",
 			messageHolderId: "ln-messageHolder",
