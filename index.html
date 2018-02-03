@@ -27,8 +27,6 @@ $(document).ready(function(){
   // Add leaveNotice to external A elements
   $('a.external').leaveNotice({
         siteName: 'the NIST fork of the leaveNotice jQuery plugin',
-        exitMessage: '<h2><strong>Thank you for visiting {SITENAME}.</strong></h2><p>We hope your visit was informative.</p><p>We have provided a link to this site because it has information that may be of interest to our users. NIST does not necessarily endorse the views expressed or the facts presented on this site. Further, NIST does not endorse any commercial products that may be advertised or available on this site.</p>',
-        timeOut: 10000,
   });
 });
 </script>
@@ -51,7 +49,7 @@ $(document).ready(function(){
 <div id="main">
 <p><strong>LeaveNotice</strong> is a plug in to easily notify your users that they are leaving your website. This was developed with “official” type websites  in mind (Government, money-processing, etc). Because of the nature of  the information those sites house, it can be important to make sure  users know that they are being linked to a site not under “official”  jurisdiction.</p>
 <h2>NIST notes</h2>
-<p>This fork of the <a href="http://rewdy.com/projects/view/leavenotice/">original (upstream) plugin</a> has been updated with NIST-specific default messages and instructions for use. Future changes in this fork will include updates to support versions of jQuery newer than version 1.x.  <strong>Currently, only 1.4 <= jQuery <= 1.12.1 is supported</strong> but newer 1.x versions will probably continue to work.</p>
+<p>This fork of the <a href="http://rewdy.com/projects/view/leavenotice/">original (upstream) plugin</a> has been updated with NIST-specific default messages and instructions for use. Future changes in this fork will include updates to support versions of jQuery newer than version 1.x.  <strong>Currently, only 1.4 <= jQuery <= 1.12.4 is supported</strong> but newer 1.x versions will probably continue to work.</p>
 <h2>Examples</h2>
 <p><a href="example.html">See Examples</a></p>
 <h2>Features of LeaveNotice</h2>
@@ -76,31 +74,54 @@ $(document).ready(function(){
 	<li>In 1.1.1, on page unload, the modal is killed so that users who return to the website via their browser back button will not see the leave notice as they return.</li>
 </ul>
 <h2>Installation</h2>
-<p>To install LeaveNotices on your site, there are 2 steps.</p>
+<p>To use the NIST version of LeaveNotice on your site, there are 2 steps.</p>
 <p>1.) Link to jQuery, the plugin javascript file, and the CSS file.</p>
 <p><em>(Note: In order to keep things easy to customize, all formatting is handled with the CSS file. The only &quot;formatting&quot; option that is handled with javascript, is setting the opacity for the &quot;blackout&quot; div. This can be disabled, too, if you prefer using only css.)</em></p>
 <p>Example:</p>
-<code class="block">&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;<strong>js/jquery.1.3.2.min.js</strong>&quot;&gt;&lt;/script&gt;
-&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;<strong>js/jquery.leaveNotice.min.js</strong>&quot;&gt;&lt;/script&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/jquery.leaveNotice.css&quot; /&gt;</code>
-<p>2.) Initiate the plugin with jQuery with the <a href="http://docs.jquery.com/Events/ready" target="_blank">DOM is ready</a>.</p>
-<p>Example:</p>
-<code class="block">&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;
+<code class="block">&lt;script type=&quot;text/javascript&quot; src=&quot;<strong>https://code.jquery.com/jquery.1.12.4.min.js</strong>&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;<strong>https://pages.nist.gov/leaveNotice/js/jquery.leaveNotice-nist.min.js</strong>&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://pages.nist.gov/leaveNotice/css/jquery.leaveNotice.css&quot; /&gt;</code>
+<p>2.) Instantiate the plugin with a <a href="http://docs.jquery.com/Events/ready" target="_blank">jQuery ready script</a>.</p>
+<p>Example: add leaveNotice handler to links tagged with rel="external" parameters:</p>
+<code class="block">&lt;script type=&quot;text/javascript&quot;&gt;
 $(function(){
 	$('a[rel=external]').leaveNotice();
 });
 &lt;/script&gt;</code>
-<p>When calling the <code>.leaveNotice()</code> method, you can specify no options if you like. In the notice that is shown to the users, the site URL will be used instead of a site title (e.g. &quot;You are leaving http://www.somewhere.com&quot; as opposed to, &quot;You are leaving Joe's Good Website&quot;).</p>
+<p>Example: add leaveNotice handler to ALL non-relative, non-NIST links (no manual tagging needed):</p>
+<code class="block">&lt;script type=&quot;text/javascript&quot;&gt;
+$(document).ready(function(){
+  // Mark external (non-nist.gov) A tags with class "external"
+  //If the adress start with https and ends with nist.gov
+  var re_nist = new RegExp('^https?:\/\/((^\/)*\.)*nist\\.gov(\/|$)'); 
+  //Regex to find address that start with https 
+  var re_absolute_address = new RegExp('^((https?:)?\/\/)');
+  $("a").each(function(){
+    var url=$(this).attr('href'); 
+    if(re_nist.test(url) || !re_absolute_address.test(url)){
+      $(this).addClass('local'); 
+    }else{
+      $(this).addClass('external');
+    } 
+  });
+  // Add leaveNotice to external A elements 
+  $('a.external').leaveNotice({
+    siteName: 'the NIST fork of the leaveNotice jQuery plugin',
+    exitMessage: '<h2><strong>Thank you for visiting {SITENAME}.</strong></h2><p>We hope your visit was informative.</p><p>We have provided a link to this site because it has information that may be of interest to our users. NIST does not necessarily endorse the views expressed or the facts presented on this site. Further, NIST does not endorse any commercial products that may be advertised or available on this site.</p>',
+  });
+});
+&lt;script&gt;</code>
+<p>When calling the <code>.leaveNotice()</code> method, you can specify no options if you like. In the notice that is shown to the users, the site name of "NIST" will be used instead of a site title (e.g. &quot;You are leaving NIST&quot; as opposed to, &quot;You are leaving Joe's Good Website&quot;).</p>
 <p>While this is okay, I suggest for a minimal installation, specifying at least a site name. This will be a little bit more clear for those using your site.</p>
-<p>Here's an example of specifying a site name:</p>
-<code class="block">&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;
+<p>Here's an example specifying a more specific site name:</p>
+<code class="block">&lt;script type=&quot;text/javascript&quot;&gt;
 $(function(){
 	$('a[rel=external]').leaveNotice({
-		siteName: 'My Cool Site'
+		siteName: 'My Cool NIST Site'
 	});
 });
 &lt;/script&gt;</code>
-<p>With the <code>siteName</code> option specified, a user would see, "You are leaving My Cool Site..." instead of seeing the URL.</p>
+<p>With the <code>siteName</code> option specified a user would see "You are leaving My Cool NIST Site..." instead of seeing just "NIST".</p>
 <p><a href="#general_implementation">Other general implementation suggestions</a></p>
 <h2>Available Options</h2>
 <table border="0" cellspacing="0" cellpadding="0" class="data">
@@ -115,14 +136,14 @@ $(function(){
 			<p>Name of your site</p></td>
 		<td><em>string</em></td>
 		<td>&quot;My Cool Site&quot;</td>
-		<td>Your page URL</td>
+		<td>NIST</td>
 	</tr>
 	<tr>
 		<td><p><code>exitMessage</code></p>
 			<p>message that is shown your visitors to let them know they are leaving</p></td>
 		<td><em>string (HTML)</em></td>
 		<td><p>&quot;&lt;p&gt;You have requested to leave {<a href="#hooks" title="This is a hook. Click for info.">SITENAME</a>}&lt;/p&gt;&quot;</p>			</td>
-		<td>&quot;&lt;p&gt;&lt;strong&gt;You have requested a website outside of {<a href="#hooks" title="This is a hook. Click for info.">SITENAME</a>}.&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Thank you for visiting.&lt;/p&gt;&quot;</td>
+		<td>&quot;&lt;h2&gt;&lt;strong&gt;Thank you for visiting {SITENAME}.&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;We hope your visit was informative.&lt;/p&gt;&lt;p&gt;We have provided a link to this site because it has information that may be of interest to our users. NIST does not necessarily endorse the views expressed or the facts presented on this site. Further, NIST does not endorse any commercial products that may be advertised or available on this site.&lt;/p&gt;</td>
 	</tr>
 	<tr>
 		<td><p><code>preLinkMessage</code></p>
@@ -153,7 +174,7 @@ $(function(){
 			<p>Setting to &quot;0&quot; will disable the auto redirect and make it so the user has to explicitly click the link.</p></td>
 		<td><em>integer (number of milliseconds)</em></td>
 		<td>5725</td>
-		<td>4000 <em>(4 seconds)</em></td>
+		<td>10000 <em>(10 seconds)</em></td>
 	</tr>
 	<tr>
 		<td><p><code>overlayId</code></p>
