@@ -50,7 +50,9 @@ $(document).ready(function(){
 <div id="main">
 <p><strong>LeaveNotice</strong> is a plug in to easily notify your users that they are leaving your website. This was developed with “official” type websites  in mind (Government, money-processing, etc). Because of the nature of  the information those sites house, it can be important to make sure  users know that they are being linked to a site not under “official”  jurisdiction.</p>
 <h2>NIST notes</h2>
-<p>This fork of the <a href="http://rewdy.com/projects/view/leavenotice/">original (upstream) plugin</a> has been updated with NIST-specific default messages and instructions for use. Future changes in this fork will include updates to support versions of jQuery newer than version 1.x.  <strong>Currently, only 1.4 <= jQuery <= 1.12.4 is supported</strong> but newer 1.x versions will probably continue to work.</p>
+<p>This fork of the <a href="http://rewdy.com/projects/view/leavenotice/">original (upstream) plugin</a> has been updated with NIST-specific default messages and instructions for use. Future changes in this fork will include updates to support versions of jQuery newer than version 1.x.  <strong>Currently, only 1.4 &lt;= jQuery &lt;= 1.12.4 is supported</strong> but newer 1.x versions will probably continue to work.</p>
+<h2>NIST Notes on Performance<h2>
+<p>You should load jQuery and plugins with the <code>defer</code> parameter in the script tag, but this will not work if you have an inline script (as in the examples below) that depends on the deferred scripts.  <em>Solution: load the ready script with "src=URL defer" parameters</em> rather than inlining it.</p>
 <h2>Examples</h2>
 <p><a href="example.html">See Examples</a></p>
 <h2>Features of LeaveNotice</h2>
