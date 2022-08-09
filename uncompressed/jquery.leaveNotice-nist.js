@@ -113,7 +113,7 @@
 				});
 				
 				// Clears the display when leaving the page to prevent it from showing upon returning.
-				$(window).unload(function(){
+				$(window).on('unload', function(){
 					closeDialog(options, leaveIn);
 				});
 				
