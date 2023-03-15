@@ -3,5 +3,6 @@
 # I downloaded the Google Closure compiler to minify and optimize the
 # Javascript files. You'll need the java command to run it:
 
-java -jar ~/Downloads/closure-compiler-v20220719.jar --js uncompressed/jquery.leaveNotice.js --js_output_file js/jquery.leaveNotice.min.js
-java -jar ~/Downloads/closure-compiler-v20220719.jar --js uncompressed/jquery.leaveNotice-nist.js --js_output_file js/jquery.leaveNotice-nist.min.js
+java -jar ./closure-compiler-v20230228.jar --js uncompressed/jquery.leaveNotice.js --js_output_file js/jquery.leaveNotice.min.js
+java -jar ./closure-compiler-v20230228.jar --js uncompressed/jquery.leaveNotice-nist.js --js_output_file js/jquery.leaveNotice-nist.min.js
+java -jar ./closure-compiler-v20230228.jar --js uncompressed/jquery.leaveNotice-dist.js --js_output_file js/jquery.leaveNotice-dist.min.js
